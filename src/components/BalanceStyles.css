@@ -1,0 +1,18 @@
+.Balance-compo{
+    width: 40%;
+    margin: auto;
+    padding: 1.5rem 0;
+}
+
+@media  screen and (max-width:640px) {
+    .Balance-compo{
+        width: 90%;
+    }
+    .your-balance{
+        padding-left: 2rem;
+    }
+    
+    .balance{
+        padding-left: 2.5rem;
+    }
+}

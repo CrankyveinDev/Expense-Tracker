@@ -1,0 +1,40 @@
+.transac {
+  margin: auto;
+  width: 40%;
+  padding: 1rem 0 0 0;
+}
+
+.text {
+  font-size: 1.25rem;
+}
+.text2{
+    margin-bottom: 0.5rem;
+}
+
+input {
+    font-size: 1.25rem;
+  display: inline;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  height: 2rem;
+}
+
+
+button {
+  cursor: pointer;
+  background-color: #9c88ff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  color: #fff;
+  border: 0;
+  display: block;
+  font-size: 1.25rem;
+  margin: 10px 0 30px;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+@media screen and (max-width: 640px) {
+  .transac {
+    width: 90%;
+  }
+}

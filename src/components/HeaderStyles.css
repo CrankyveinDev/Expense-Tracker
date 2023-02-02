@@ -1,0 +1,12 @@
+.header{
+    text-align: center;
+    width: 40%;
+    margin: auto;
+    padding-top: 2rem;
+}
+
+@media screen and (max-width:640px) {
+    .header{
+        width: 90%;
+    }
+}
