@@ -1,5 +1,6 @@
 import React from 'react';
 import "./HistoryStyles.css";
+import Card from "./card"
 
 const History = (props) => {
   return (
@@ -7,38 +8,15 @@ const History = (props) => {
         <h2>History</h2>
         <hr />
         <div className="container">
-          <div className="card money-added">
-            <p className="para">cash</p>
-            <p className="amount">$250</p>
-          </div>
-          <div className="card money-deduct">
-            <p className="para">Bill</p>
-            <p className="amount">$50</p>
-          </div>
-          <div className="card money-added">
-            <p className="para">cash</p>
-            <p className="amount">$250</p>
-          </div>
-          <div className="card money-deduct">
-            <p className="para">Bill</p>
-            <p className="amount">$50</p>
-          </div>
-          <div className="card money-added">
-            <p className="para">cash</p>
-            <p className="amount">$250</p>
-          </div>
-          <div className="card money-deduct">
-            <p className="para">Bill</p>
-            <p className="amount">$50</p>
-          </div>
-          <div className="card money-added">
-            <p className="para">cash</p>
-            <p className="amount">$250</p>
-          </div>
-          <div className="card money-deduct">
-            <p className="para">Bill</p>
-            <p className="amount">$50</p>
-          </div>
+        {
+          props.data.map((value,ind)=>{
+                return <Card 
+                  key={ind}
+                  res={value.reas}
+                  amount={value.amount}
+                />
+            })
+        }
         </div>
     </div>
   )

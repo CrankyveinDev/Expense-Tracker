@@ -1,17 +1,17 @@
 import React from "react";
 import "./Add_TransactionStyles.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const Add_Transaction = (props) => {
+const Add_Transaction = ({ fun }) => {
   const [arr, setArr] = useState([]);
   const [text, setText] = useState({
     reas: "",
     amount: 0,
   });
 
-  function changeInInput (event){
+  function changeInInput(event) {
     const a = event.target.name;
-    const b = event.target.val;
+    const b = event.target.value;
 
     setText((prevValue) => {
       if (a === "input1") {
@@ -26,19 +26,29 @@ const Add_Transaction = (props) => {
         };
       }
     });
-    console.log(text);
-  };
+  }
 
   const handleChange = () => {
-    var temparr = arr;
-    temparr.push(text);
-    setArr(temparr);
-    setText({
-      reas: "",
-      amount: 0,
-    });
-    props.fun(arr);
+    if (text.reas == null||text.reas==="") {
+      alert("Please enter some the reason for the expense\n");
+    } else if (text.amount == null||text.amount==="") {
+      alert(
+        "Please enter some value in amount section\n If the expenses you made is 0 then enter 0\n"
+      );
+    } else {
+      var temparr = arr;
+      temparr.push(text);
+      setArr([...temparr]);
+      setText({
+        reas: "",
+        amount: 0,
+      });
+    }
   };
+
+  useEffect(() => {
+    fun([...arr]);
+  }, [arr, fun]);
 
   return (
     <div className="transac">
@@ -48,17 +58,17 @@ const Add_Transaction = (props) => {
         <input
           type="text"
           name="input1"
-          val={text.reas}
+          value={text.reas}
           placeholder="Enter the text.."
-          onChange={changeInInput()}
+          onChange={changeInInput}
         />
         <p className="text">Amount</p>
         <p className="text2">(negative-expense, positive-income)</p>
         <input
-          onChange={changeInInput()}
+          onChange={changeInInput}
           type="number"
           name="input2"
-          val={text.amount}
+          value={text.amount}
           placeholder="Enter the amount.."
         />
         <button onClick={handleChange}>Add Transaction</button>
